@@ -5,8 +5,8 @@ stages:
 variables:
   CI_REGISTRY: gitlab.flextech.asia:5050
   #  IMAGE_TAG: $CI_REGISTRY/e-learning/os-live-class:$CI_COMMIT_REF_NAME
-  IMAGE_TAG_API: $CI_REGISTRY/e-learning/os-live-class/api
-  IMAGE_TAG_SOCKET: $CI_REGISTRY/e-learning/os-live-class/socket
+  IMAGE_TAG_API: $CI_REGISTRY/lms-university/liveclass-api/api
+  IMAGE_TAG_SOCKET: $CI_REGISTRY/lms-university/liveclass-api/socket
 
 Build API:
   stage: build

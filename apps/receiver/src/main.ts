@@ -18,7 +18,7 @@ async function bootstrap() {
       prefetchCount: 10
     }
   });
-  app.useWebSocketAdapter(new RedisIoAdapter(app));
+  // app.useWebSocketAdapter(new RedisIoAdapter(app));
 
   await app.listen()
 }

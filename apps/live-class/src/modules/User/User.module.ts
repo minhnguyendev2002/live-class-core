@@ -14,7 +14,7 @@ import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   exports:[JwtModule],
-  imports: [TypeOrmModule.forFeature([User]), JwtModule.register({ secret: process.env.jwt_secret_key }),],
+  imports: [TypeOrmModule.forFeature([User]), JwtModule.register({ secret: process.env.JWT_SECRET_KEY }),],
   controllers: [UserController],
   providers: [UserService],
 })

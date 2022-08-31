@@ -62,7 +62,7 @@ import User from '@app/common-core/entities/User.entity';
       logging: true
     }),
     MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING),
-    JwtModule.register({ secret: process.env.jwt_secret_key }),
+    JwtModule.register({ secret: process.env.JWT_SECRET_KEY }),
     MongooseModule.forFeature([
       { name: Conversation.name, schema: ConversationSchema },
       { name: Message.name, schema: MessageSchema },

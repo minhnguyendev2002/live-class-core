@@ -77,7 +77,7 @@ import { RouteInfo } from '@nestjs/common/interfaces/middleware/middleware-confi
     }),
     MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING),
     RabbitMQModule,
-    JwtModule.register({ secret: process.env.jwt_secret_key }),
+    JwtModule.register({ secret: process.env.JWT_SECRET_KEY }),
     UserModule,
     ServicePackModule,
     ClassModule,

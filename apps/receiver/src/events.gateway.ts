@@ -165,14 +165,14 @@ export class EventsGateway implements OnGatewayInit, OnGatewayConnection, OnGate
   }
 
   private _errorTraceSubscribe(socket: Socket) {
-    if (socket && socket.handshake && socket.handshake.headers && socket.handshake.headers.trace_thread) {
-      socket.join(socket.handshake.headers.trace_thread + '_');
+    if (socket && socket.handshake && socket.handshake.query && socket.handshake.query.trace_thread) {
+      socket.join(socket.handshake.query.trace_thread + '_');
     }
   }
 
   private _errorTraceSend(socket: Socket, message: any) {
-    if (socket && socket.handshake && socket.handshake.headers && socket.handshake.headers.trace_thread && message) {
-      this.sendToRoom(socket.handshake.headers.trace_thread + '_', GatewayRoomSubKeys.ERROR_CONNECTION, message);
+    if (socket && socket.handshake && socket.handshake.query && socket.handshake.query.trace_thread && message) {
+      this.sendToRoom(socket.handshake.query.trace_thread + '_', GatewayRoomSubKeys.ERROR_CONNECTION, message);
     }
   }
 
@@ -187,8 +187,8 @@ export class EventsGateway implements OnGatewayInit, OnGatewayConnection, OnGate
 
   async verify(socket: Socket): Promise<User | undefined> {
     try {
-      if (socket.handshake && socket.handshake.headers && socket.handshake.headers.authorization) {
-        return await this.jwtService.verifyAsync<User>(socket.handshake.headers.authorization, { secret: process.env.JWT_SECRET_KEY });
+      if (socket?.handshake?.query?.authorization) {
+        return await this.jwtService.verifyAsync<User>(socket.handshake.query.authorization, { secret: process.env.JWT_SECRET_KEY });
       }
     } catch (e) {
       console.error('verify error', e);

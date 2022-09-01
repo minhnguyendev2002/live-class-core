@@ -21,6 +21,8 @@ export default class UserController extends BaseController {
   @Post(Endpoint.UserQuickRegister)
   async createFolder(@Headers() headers: DefaultHeaders, @Body() body: UserQuickRegisterReq) {
     const response = this.successRes();
+    console.log(body);
+    
     const create: User = {
       role: body.role,
       full_name: body.full_name,

@@ -16,6 +16,8 @@ export class JWTMiddleware implements NestMiddleware {
       if (req.headers.authorization) {
         const token = req.headers.authorization.replace('Bearer ', '');
         const user = await this.jwtService.verifyAsync<User>(token, { secret: process.env.JWT_SECRET_KEY });
+        console.log(user, 'user');
+        
         if (user) {
           req.headers._id = user.id+"";
           req.headers._role = user.role;

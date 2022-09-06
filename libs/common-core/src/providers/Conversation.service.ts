@@ -171,7 +171,11 @@ export default class ConversationService {
 
   async updateMessageFromMessageReq(sender: User, conversationId: string, request: SendMessageReq): Promise<Conversation | undefined> {
     const conversation = await this.conversationDocumentModel.findOne({ conversation_id: conversationId }).exec();
+    console.log(sender, conversation.participants, conversation.participants.find(x => x === sender.id));
+    
     if (conversation && conversation.participants && conversation.participants.length && conversation.participants.find(x => x === sender.id)) {
+      console.log(1);
+      
       let attachments = request.attachments;
       if (attachments && attachments.length) {
         attachments = attachments.map((item) => {

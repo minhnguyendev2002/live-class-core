@@ -103,6 +103,7 @@ export class AppModule implements NestModule {
       { method: RequestMethod.ALL, path: `${Endpoint.ServicePack}/:id/detail` },
       { method: RequestMethod.ALL, path: `${Endpoint.ServicePack}` },
       { method: RequestMethod.GET, path: `${Endpoint.User}/${Endpoint.UserInfo}` },
+      { method: RequestMethod.GET, path: `${Endpoint.User}/${Endpoint.UserById}` },
       { method: RequestMethod.ALL, path: `${Endpoint.ServicePack}/${Endpoint.ServicePackStatus}` },
       { method: RequestMethod.ALL, path: `${Endpoint.ServicePackTransaction}/${Endpoint.TransPayment}` },
       { method: RequestMethod.ALL, path: `${Endpoint.ServicePackTransaction}/${Endpoint.TransActivate}` }

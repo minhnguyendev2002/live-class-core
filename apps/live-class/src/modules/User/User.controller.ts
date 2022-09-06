@@ -1,6 +1,6 @@
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Endpoint } from '../../utils/constants';
-import { Body, Controller, Get, Headers, Post } from '@nestjs/common';
+import { Body, Controller, Get, Headers, Param, Post } from '@nestjs/common';
 import BaseController from '../../base.controller';
 import { DefaultHeaders } from '../../utils/headers';
 import { Util } from '@app/common-core/util/Util';
@@ -41,5 +41,12 @@ export default class UserController extends BaseController {
     return response;
   }
 
+
+  @Get(Endpoint.UserById)
+  async detail(@Param('id') id: number) {
+    const response = this.successRes();
+    response.data = await this.userService.findOneById(+id);
+    return response;
+  }
 
 }

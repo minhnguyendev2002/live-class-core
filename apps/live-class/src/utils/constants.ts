@@ -64,6 +64,7 @@ export const Endpoint = {
   User:'user',
   UserQuickRegister:'quick-register',
   UserInfo:'info',
+  UserById: ':id',
 };
 
 export const Fields = {

@@ -22,6 +22,8 @@ export class RoomService {
   }
 
   async update(room: Room): Promise<Room> {
+    console.log('rome', room);
+    
     delete room.updated_at;
     await this.roomRepository.update({ id: room.id }, room);
     room.updated_at = new Date();

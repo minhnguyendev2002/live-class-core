@@ -25,7 +25,6 @@ export default class Room {
   @Column()
   creator: number;
   @ApiProperty()
-  @ApiProperty()
   @Column()
   started_at: Date;
 
@@ -69,9 +68,11 @@ export class CreateRoomRequest {
   @ApiPropertyOptional()
   nest_less_region: string;
   @ApiProperty()
-  @ApiPropertyOptional()
   started_at: Date;
+  @ApiProperty()
+  @ApiPropertyOptional()
 
+  creator: number;
   @ApiPropertyOptional()
   extra_data: RoomExtraData;
 
@@ -117,7 +118,9 @@ export class UpdateRoomRequest {
   @ApiProperty()
   @ApiPropertyOptional()
   started_at: Date;
+  @ApiPropertyOptional()
 
+  creator: number;
   @ApiPropertyOptional()
   extra_data: RoomExtraData;
 

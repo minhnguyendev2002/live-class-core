@@ -15,7 +15,7 @@ export class AttendanceService {
   ) {
   }
 
-
+ 
   async getAttendants(roomId: number): Promise<[Attendance[], number]> {
     return await this.attendanceRepository.findAndCount({ room_id: roomId });
   }

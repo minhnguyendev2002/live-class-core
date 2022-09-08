@@ -54,11 +54,11 @@ export class EventsGateway implements OnGatewayInit, OnGatewayConnection, OnGate
         //   }
         // }
         if (joinRoomReq && joinRoomReq.room_id) {
-          const attendant = await this.attendanceService.getAttendantByUId(joinRoomReq.room_id, user.id);
-          if (!attendant) {
-            this._errorTraceSend(socket, { message: 'Permission denied, maybe you have not been accepted to join this room' });
-            return;
-          }
+          // const attendant = await this.attendanceService.getAttendantByUId(joinRoomReq.room_id, user.id);
+          // if (!attendant) {
+          //   this._errorTraceSend(socket, { message: 'Permission denied, maybe you have not been accepted to join this room' });
+          //   return;
+          // }
           socket.join(ConversationPrefix.getRoomPrefix(joinRoomReq.room_id));
           this.attendanceService.updateStatus(joinRoomReq.room_id, user.id, AttendanceStatus.ONLINE).then();
           const roomTrace: GatewayRoomTraceRes = {

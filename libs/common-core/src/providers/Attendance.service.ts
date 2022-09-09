@@ -35,6 +35,12 @@ export class AttendanceService {
     }
   }
 
+  async delete(room_id: number, user_id: number): Promise<boolean> {
+    const result = await this.attendanceRepository.delete({ room_id, user_id });
+    console.log('res', result);
+    return result.affected > 0;
+  }
+
   async createJoinRoom(roomId: number, user: User) {
     try {
       const room = await this.roomService.findOneById(roomId);

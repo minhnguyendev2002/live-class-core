@@ -114,6 +114,7 @@ export class EventsGateway implements OnGatewayInit, OnGatewayConnection, OnGate
               }
             };
             this.server.to(joinRoomReq.room_id.toString()).emit(GatewayRoomSubKeys.ROOM_TRACE, roomTrace);
+            this.attendanceService.delete(joinRoomReq.room_id, user.id)
           }
         }
       } else {

@@ -175,6 +175,8 @@ export default class ConversationService {
       if (conversation && conversation.participants && conversation.participants.length) {
       
       let attachments = request.attachments;
+      console.log(attachments, 'attachments');
+      
       if (attachments && attachments.length) {
         attachments = attachments.map((item) => {
           if (!item.id) {

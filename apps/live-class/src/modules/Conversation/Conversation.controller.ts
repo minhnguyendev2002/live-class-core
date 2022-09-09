@@ -26,13 +26,15 @@ export default class ConversationController extends BaseController {
     description: Description.ConversationSubscribedTopics
   })
   async sendMessage(@Headers() headers: DefaultHeaders, @Param('conversation_id') id: string, @Body() body: SendMessageReq) {
-    console.log(headers._user_data);
     
     const conversation = await this.conversationService.updateMessageFromMessageReq(JSON.parse(headers._user_data), id, body);
-    console.log(conversation);
     
     if (conversation) {
-      this.rabbitMQProducerService.send(GatewayMicroservice.BROADCAST_CONVERSATION, conversation).then();
+    const result = await this.rabbitMQProducerService.send(GatewayMicroservice.BROADCAST_CONVERSATION, conversation);
+    console.log(result);
+    
+    console.log('send');
+    
       const response = this.successRes();
       response.data = conversation;
       return response;

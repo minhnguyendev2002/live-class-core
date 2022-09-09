@@ -89,8 +89,12 @@ export class ReceiverController {
     @Payload() data: Conversation,
     @Ctx() context: RmqContext
   ) {
+    console.log('mess');
+    
     const channel = context.getChannelRef();
     const originalMessage = context.getMessage();
+    console.log(data.participants, 'data.participants');
+    
     if (data.participants && data.participants.length) {
       data.participants.map((item) => {
         this.eventsGateway.sendToRoom(GatewayRoomSubKeys.USER_MESSAGE + item, GatewayUserPushMessage.PUSH_MESSAGE, data);

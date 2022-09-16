@@ -41,7 +41,7 @@ import User from '@app/common-core/entities/User.entity';
       host: process.env.MYSQL_HOST,
       port: parseInt(process.env.MYSQL_PORT),
       username: process.env.MYSQL_USERNAME,
-      password: process.env.MYSQL_PASWORD,
+      password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DATABASE,
       entities: [
         Attendance,

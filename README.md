@@ -7,8 +7,33 @@
 
 # **Big City App (Live class - Mega Microservice)**
 
+## .ENV:
 
+|Key|Description|
+|---|---|
+|ENV|Runtime environment (development/staging/production)|
+|LISTEN_PORT|3000|
+|MYSQL_HOST|Mysql database's connection host|
+|MYSQL_PORT|Mysql database's connection port|
+|MYSQL_USERNAME|Mysql database's connection username|
+|MYSQL_PASWORD|Mysql database's connection password|
+|MYSQL_DATABASE|Mysql database's connection database name|
+|REDIS_HOST|Redis connection host|
+|REDIS_PORT|Redis connection host|
+|RMQ_URL|Rabbitmq connection url|
+|RMQ_QUEUE_NAME|Rabbitmq connection queue name|
+|AGORA_APP_ID|Agora app id|
+|AGORA_APP_CERTIFICATE|Agora app certificate|
+|AGORA_APP_IDENTIFIER|Agora app identifer|
+|AGORA_APP_AK|Agora app ak(for whiteboard)|
+|AGORA_APP_SK|Agora app sk(for whiteboard)|
 
+MONGO_HOST=222.252.26.132
+MONGO_PORT=27017
+MONGO_USERNAME=admin
+MONGO_PASSWORD=PGc1oxYCyv073euppEmrpY5W5CYUNt
+
+MONGO_CONNECTION_STRING=mongodb://admin:PGc1oxYCyv073euppEmrpY5W5CYUNt@222.252.26.132:27017/vmeet-dev?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256
 
 ## Description
 

@@ -125,6 +125,8 @@ export class AppModule implements NestModule {
       { method: RequestMethod.ALL, path: `${Endpoint.Agora}/${Endpoint.AgoraRTMToken}` },
       { method: RequestMethod.ALL, path: `${Endpoint.Agora}/${Endpoint.AgoraRoomAdminNetLessToken}` },
       { method: RequestMethod.ALL, path: `${Endpoint.Agora}/${Endpoint.AgoraRoomWriterNetLessToken}` },
+      { method: RequestMethod.GET, path: `${Endpoint.User}/${Endpoint.UserById}` },
+
     ];
     teacherRouters.map((route) => {
       consumer.apply(TeacherRoleMiddleware).exclude({ method: RequestMethod.ALL, path: `${Endpoint.User}/${Endpoint.UserQuickRegister}` }).forRoutes(route.path);
@@ -142,6 +144,8 @@ export class AppModule implements NestModule {
       { method: RequestMethod.ALL, path: `${Endpoint.Agora}/${Endpoint.AgoraRTMToken}` },
       { method: RequestMethod.ALL, path: `${Endpoint.Agora}/${Endpoint.AgoraRoomWriterNetLessToken}` },
       { method: RequestMethod.ALL, path: `${Endpoint.Agora}/${Endpoint.AgoraRoomReaderNetLessToken}` },
+      { method: RequestMethod.GET, path: `${Endpoint.User}/${Endpoint.UserById}` },
+
     ];
 
     userRouters.map((route) => {

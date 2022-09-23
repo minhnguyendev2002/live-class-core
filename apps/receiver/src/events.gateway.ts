@@ -22,7 +22,7 @@ import { ConversationPrefix } from '@app/common-core/util/Constant';
 import { RoomService } from '@app/common-core/providers/Room.service';
 import User from '@app/common-core/entities/User.entity';
 
-@WebSocketGateway(3101, {
+@WebSocketGateway(+process.env.LISTEN_PORT, {
   cors: {
     origin: '*',
     methods: '*'
